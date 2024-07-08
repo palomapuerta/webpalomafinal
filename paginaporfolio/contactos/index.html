@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- MENU ENCABEZADO -->
+    <div class="contenedor-header">
+        <header>
+            <div class="logo">
+                <a href="#">Palo </a>
+                <img src="" alt="">
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="../index.html" >INICIO</a></li>
+                    <li><a href="../sobremi/index.html">SOBRE MI</a></li>
+                    
+                    <li><a href="../porfolio/index.html" >PORTFOLIO</a></li>
+                    <li><a href="../contactos/index.html">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+                <i class="fa-solid fa-bars"></i> <!-- 3 lineas responsive -->
+            </div>
+        </header>
+    </div>
+    <!-- SECCION CONTACTO -->
+    <section id="contacto" class="contacto">
+        <div class="contenido-seccion">
+            <h2>CONTACTO</h2>
+            <div class="fila">
+               <!-- Formulario -->
+<div class="col">
+    <form id="contactForm" onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Tu Nombre" required>
+        <input type="text" id="phone" placeholder="Número telefónico" required pattern="\d{10}">
+        <input type="email" id="email" placeholder="Dirección de correo" required>
+        <input type="text" id="subject" placeholder="Tema" required>
+        <textarea id="message" cols="30" rows="10" placeholder="Mensaje" required></textarea>
+        <button type="submit">
+            Enviar Mensaje<i class="fa-solid fa-paper-plane"></i>
+            <span class="overlay"></span>
+        </button>
+    </form>
+</div>
+
+<script>
+function validateForm() {
+    let valid = true;
+    let errorMessage = "";
+
+    // Nombre
+    let name = document.getElementById("name").value;
+    if (name.trim() === "") {
+        valid = false;
+        errorMessage += "El nombre es obligatorio.\n";
+    }
+
+    // Teléfono
+    let phone = document.getElementById("phone").value;
+    let phonePattern = /^\d{10}$/;
+    if (!phonePattern.test(phone)) {
+        valid = false;
+        errorMessage += "El número telefónico debe tener 10 dígitos.\n";
+    }
+
+    // Correo electrónico
+    let email = document.getElementById("email").value;
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        valid = false;
+        errorMessage += "Por favor, ingresa un correo electrónico válido.\n";
+    }
+
+    // Tema
+    let subject = document.getElementById("subject").value;
+    if (subject.trim() === "") {
+        valid = false;
+        errorMessage += "El tema es obligatorio.\n";
+    }
+
+    // Mensaje
+    let message = document.getElementById("message").value;
+    if (message.trim() === "") {
+        valid = false;
+        errorMessage += "El mensaje es obligatorio.\n";
+    }
+
+    // Mostrar mensajes de error si hay
+    if (!valid) {
+        alert(errorMessage);
+    }
+
+    return valid;
+}
+</script>
+                <!-- Mapa -->
+                <div class="col">
+                    <img src="#" alt="">
+                    <div class="info">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Belgrano 345, Buenos Aires
+                              </li> 
+                            <li>
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                Llamanos: 2615707203 
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                Email: palomapuerta44@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+       <!-- <a href="#inicio" class="arriba"> 
+            <i class="fa-solid fa-angles-up"></i>-->
+        </a>
+        <div class="redes">
+            <a href="https://x.com/PalomaPuerta4?t=uo4NbCPd7Z5BEoThgg9GaA&s=09"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/palo_puerta?igsh=MXNjbTdrZ3J2NDQ3eQ=="><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://web.telegram.org/a/#-1001224624669"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function mostrarOcultarMenu() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
